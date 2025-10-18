@@ -39,7 +39,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void displayWelcomeMessage() {
+    private static void displayWelcomeMessage() { //welcome
         System.out.println("=========================================");
         System.out.println("   CHAO MUNG DEN VOI QUAN LY TAI CHINH   ");
         System.out.println("=========================================");
