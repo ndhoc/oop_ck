@@ -1,5 +1,5 @@
 package com.financemanager;
-
+//aaaaaaaa
 import com.financemanager.service.FinanceManager;
 import java.util.Scanner;
 
@@ -39,7 +39,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void displayWelcomeMessage() { //welcome
+    private static void displayWelcomeMessage() {
         System.out.println("=========================================");
         System.out.println("   CHAO MUNG DEN VOI QUAN LY TAI CHINH   ");
         System.out.println("=========================================");
