@@ -1,0 +1,137 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Trang-1" id="BEJDQUDnLPCDaHr3zRfS">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="782hbAUxd8Wpf_XRqg54-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classicThin;endFill=0;startArrow=diamond;startFill=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-44" value="Manages" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-40">
+          <mxGeometry x="0.69" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classicThin;endFill=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-70" value="has" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-68">
+          <mxGeometry x="0.4316" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=classicThin;endFill=0;startArrow=diamond;startFill=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-71" value="provides" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-69">
+          <mxGeometry x="-0.1013" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-73" value="sets" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-72">
+          <mxGeometry x="0.3604" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;startArrow=diamond;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=diamond;startFill=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=diamond;startFill=0;" edge="1" parent="1" source="NGjyt6KgYJ8zzOZ-dMwq-16" target="782hbAUxd8Wpf_XRqg54-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NGjyt6KgYJ8zzOZ-dMwq-16" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;User&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-userId: String&lt;br&gt;-username: String&amp;nbsp;&lt;br&gt;-password: String&amp;nbsp;&lt;br&gt;-String email&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+addAccount(account: Account):&amp;nbsp;void&amp;nbsp;&lt;br&gt;+removeAccount(accountId: String):&amp;nbsp;void&amp;nbsp;&lt;br&gt;+addTransaction(transaction: Transaction): void&amp;nbsp;&lt;br&gt;+addLoan(loan: Loan):&amp;nbsp;void&amp;nbsp;&lt;br&gt;+addLending(lending: Lending):&amp;nbsp;void&amp;nbsp;&lt;br&gt;+generateReport():&amp;nbsp;FinancialReport&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-50" width="270" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Account&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-accountId: String&lt;br&gt;-accounName: String&lt;br&gt;-accountType: String&lt;br&gt;-balance: double&lt;br&gt;-currency: String&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+deposit(amount: double): void&lt;br&gt;+withdraw(amount: double): void&lt;br&gt;+transfer(toAccount: Account, amount: double):void&lt;br&gt;+getBalance(): double&lt;br&gt;+updateBalance(): void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="256" width="290" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-3" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Loan&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-loanId: String&lt;br&gt;-lenderName: String&lt;br&gt;-principalAmount: double&lt;br&gt;-interestRate: double&lt;br&gt;-startDate: Date&lt;br&gt;-dueDate: Date&lt;br&gt;-status: String&lt;br&gt;-paymentHistory: List&amp;lt;Payment&amp;gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+calculateInterest():&amp;nbsp;double&amp;nbsp;&lt;br&gt;+addPayment(payment: Payment):&amp;nbsp;void&amp;nbsp;&lt;br&gt;+updatStatus():&amp;nbsp;void&amp;nbsp;&lt;br&gt;+checkDueDate():&amp;nbsp;boolean&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="300" y="245" width="230" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-4" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Lending&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-lendingId: String&lt;br&gt;-borrowerName: String&lt;br&gt;-principalAmount: double&lt;br&gt;-interestRate: double&lt;br&gt;-startDate: Date&lt;br&gt;-dueDate: Date&lt;br&gt;-status: String&lt;br&gt;-paymentHistory: List&amp;lt;Payment&amp;gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+calculateInterest():&amp;nbsp;double&amp;nbsp;&lt;br&gt;+addRepayment(payment: Payment): void&amp;nbsp;&lt;br&gt;+updateStatus(): void&amp;nbsp;&lt;br&gt;+checkDueDate(): boolean&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="620" y="245" width="240" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-6" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Budget&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-budgetId: String&lt;br&gt;-category: String&lt;br&gt;-allocatedAmount: double&lt;br&gt;-spentAmount: double&lt;br&gt;-period: Date&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+setBudget(allocatedAmount: double): void&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;br&gt;+trackSpending(spentAmount: double): void&lt;br&gt;+getRemaindingBudget(): double&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="919" y="280" width="250" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 8;endArrow=block;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-8" target="782hbAUxd8Wpf_XRqg54-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=blockThin;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-8" target="782hbAUxd8Wpf_XRqg54-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-8" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;FinancialReport&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-reportDate: Date&lt;br&gt;-reportType: String&lt;br&gt;-data: Map&amp;lt;String, Object&amp;gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+generateReport():&amp;nbsp;FinancialReport&amp;nbsp;&lt;br&gt;+exportToExcel(): void&amp;nbsp;&lt;br&gt;+exportToCSV():&amp;nbsp;void&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="292.5" width="220" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=block;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-13" target="782hbAUxd8Wpf_XRqg54-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-13" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Reminder&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-reminderId: String&lt;br&gt;-reminderType: String&lt;br&gt;-reminderDate: Date&lt;br&gt;-message: String&lt;br&gt;-isActive: boolean&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+setReminder(reminderDate: Date, message: String)&lt;br&gt;+triggerReminder(): void&lt;br&gt;+cancelReminder(): void&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="300" width="300" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=diamond;endFill=1;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-20" target="782hbAUxd8Wpf_XRqg54-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-46" value="contains&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-45">
+          <mxGeometry x="0.4667" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-20" target="782hbAUxd8Wpf_XRqg54-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-51" value="categorizes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-50">
+          <mxGeometry x="-0.0808" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-20" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Transaction&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-transactionId: String&lt;br&gt;-date: Date&lt;br&gt;-amount: double&lt;br&gt;-type: String&lt;br&gt;-descripton: String&lt;br&gt;-category: String&lt;br&gt;-account: Account&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+createTransaction()&amp;nbsp;void&lt;br&gt;+editTransaction():&amp;nbsp;void&amp;nbsp;&lt;br&gt;+deleteTransaction():&amp;nbsp;void&amp;nbsp;&lt;br&gt;+categorizeTransaction(category: Category):&amp;nbsp;boolean&amp;nbsp;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="660" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=diamond;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-33" target="782hbAUxd8Wpf_XRqg54-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-54" value="receives&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-53">
+          <mxGeometry x="0.6323" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=diamond;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-33" target="782hbAUxd8Wpf_XRqg54-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-58" value="collects&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="782hbAUxd8Wpf_XRqg54-57">
+          <mxGeometry x="0.6545" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-33" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Payment&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-paymentId: String&lt;br&gt;-paymentDate: Date&lt;br&gt;-amount: double&lt;br&gt;-paymentType: String&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+processPayment(): void&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-34" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Category&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-categoryId: String&lt;br&gt;-categoryName: String&lt;br&gt;-categoryType: String&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+addCategory(): void&lt;br&gt;+editCategory(): void&lt;br&gt;+deleteCategory(): void&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="-35" y="1000" width="150" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-36" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;IExportable&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+exportToExcel(): void&lt;br&gt;+exportToCSV(): void&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="740" width="150" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-38" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;IReportGenerator&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+generateReport(): FinancialReport&amp;nbsp;&lt;br&gt;+filterByDateRange(start: Date, end: Date): List&amp;lt;FinancialReport&amp;gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="740" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-39" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;INotification&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+sendNotification(): void&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1955" y="760" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;endArrow=block;endFill=0;" edge="1" parent="1" source="782hbAUxd8Wpf_XRqg54-7" target="782hbAUxd8Wpf_XRqg54-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="782hbAUxd8Wpf_XRqg54-7" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SavingsGoal&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;-goalId: String&lt;br&gt;-goalName: String&lt;br&gt;-targetAmount: double&lt;br&gt;-currentAmount: double&lt;br&gt;-targetDate: Date&lt;br&gt;-monthlyContribution: double&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+setGoal(goalName: String, targetAmount: double): void&lt;br&gt;+updateProgress(currentAmount: double): void&lt;br&gt;+calculateMonthlyContribution(): double&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="280" width="310" height="206" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
