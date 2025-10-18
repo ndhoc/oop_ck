@@ -4,7 +4,7 @@ package com.financemanager;
 import com.financemanager.service.FinanceManager;
 import java.util.Scanner;
 
-public class Main {
+public class Main {// ldshljfalsfas
     private static FinanceManager financeManager = new FinanceManager();
     private static Scanner scanner = new Scanner(System.in);
 
