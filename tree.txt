@@ -1,0 +1,30 @@
+src/
+├── main/
+│   ├── java/
+│   │   ├── com/financemanager/
+│   │   │   ├── Main.java
+│   │   │   ├── model/
+│   │   │   │   ├── Account.java
+│   │   │   │   ├── Transaction.java
+│   │   │   │   ├── TransactionType.java
+│   │   │   │   ├── Loan.java
+│   │   │   │   ├── Lending.java
+│   │   │   │   ├── Category.java
+│   │   │   │   └── Payment.java
+│   │   │   ├── service/
+│   │   │   │   ├── AccountService.java
+│   │   │   │   ├── TransactionService.java
+│   │   │   │   ├── LoanService.java
+│   │   │   │   ├── ReportService.java
+│   │   │   │   └── FinanceManager.java
+│   │   │   ├── exception/
+│   │   │   │   ├── InsufficientBalanceException.java
+│   │   │   │   ├── AccountNotFoundException.java
+│   │   │   │   └── InvalidTransactionException.java
+│   │   │   └── util/
+│   │   │       ├── DateUtils.java
+│   │   │       ├── Validator.java
+│   │   │       └── Constants.java
+│   │   └── resources/
+└── test/
+    └── java/
