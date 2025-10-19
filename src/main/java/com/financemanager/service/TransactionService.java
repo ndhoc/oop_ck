@@ -61,6 +61,15 @@ public class TransactionService {
 
             // Update account balance
             Account account = accountOpt.get();
+            if (type == TransactionType.EXPENSE) {
+                if (account.getBalance() < amount) {
+                    System.out.println(" So du khong du de thuc hien giao dich!");
+                    System.out.printf(" So du hien tai: %.2f VND\n", account.getBalance());
+                    System.out.printf(" So tien can chi: %.2f VND\n", amount);
+                    System.out.printf(" Con thieu: %.2f VND\n", amount - account.getBalance());
+                    return; // Dừng lại, không thực hiện giao dịch
+                }
+            }
             account.updateBalance(amount, type);
 
             System.out.println("Them giao dich thanh cong!");
