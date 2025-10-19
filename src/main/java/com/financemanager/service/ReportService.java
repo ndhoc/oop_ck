@@ -43,12 +43,14 @@ public class ReportService {
 
         // Phân tích tỷ lệ
         if (totalIncome > 0) {
-            double expenseRatio = (totalExpense / totalIncome) * 100;
-            double savingsRatio = 100 - expenseRatio;
-            System.out.printf("TY LE CHI TIEU/THU NHAP: %.1f%%\n", expenseRatio);
-            System.out.printf("TY LE TIET KIEM: %.1f%%\n", savingsRatio);
-        }
-    }
+    double expenseRatio = (totalExpense / totalIncome) * 100.0;
+    double savingsRatio = 100.0 - expenseRatio;
+    System.out.printf("TY LE CHI TIEU/THU NHAP: %.1f%%%n", expenseRatio);
+    System.out.printf("TY LE TIET KIEM: %.1f%%%n", savingsRatio);
+} else {
+    System.out.println("TY LE CHI TIEU/THU NHAP: N/A (khong co du lieu thu nhap)");
+    System.out.println("TY LE TIET KIEM: N/A (khong co du lieu thu nhap)");
+}
 
     // Báo cáo thu nhập và chi tiêu theo khoảng thời gian
     public void generateIncomeExpenseReport(LocalDate startDate, LocalDate endDate) {
