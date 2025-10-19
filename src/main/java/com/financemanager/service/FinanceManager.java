@@ -128,26 +128,26 @@ public class FinanceManager {
     }
 
     // Loan management - SỬA LẠI METHOD addLoan
-    public void addLoan(String lender, double amount, double interest, String description) {
-        Validator.ValidationResult result = Validator.validateLoan(lender, amount, interest, description);
+    public void addLoan(String lender, double amount, double interest,
+                        int months, String description) {
+        Validator.ValidationResult result = Validator.validateLoan(lender, amount, interest, description, months);
         if (!result.isValid()) {
             result.printErrors();
             return;
         }
 
-        Loan loan = new Loan(lender, amount, interest, description);
-        loanService.addLoan(loan);
+        loanService.addLoan(lender, amount, interest, months, description);
     }
 
-    public void addLending(String borrower, double amount, double interest, String description) {
-        Validator.ValidationResult result = Validator.validateLoan(borrower, amount, interest, description);
+    public void addLending(String borrower, double amount, double interest,
+                           int months, String description) {
+        Validator.ValidationResult result = Validator.validateLoan(borrower, amount, interest, description, months);
         if (!result.isValid()) {
             result.printErrors();
             return;
         }
 
-        Lending lending = new Lending(borrower, amount, interest, description);
-        loanService.addLending(lending);
+        loanService.addLending(borrower, amount, interest, months, description);
     }
 
     public void generateAccountReport(String accountId) {
@@ -166,6 +166,16 @@ public class FinanceManager {
             account.generateAccountReport(transactionService.getAllTransactions());
             System.out.println();
         }
+    }
+
+    // THÊM: Method xem chi tiết khoản vay
+    public void displayLoanDetails(String loanId) {
+        loanService.displayLoanDetails(loanId);
+    }
+
+    // THÊM: Method xem chi tiết khoản cho vay
+    public void displayLendingDetails(String lendingId) {
+        loanService.displayLendingDetails(lendingId);
     }
 
     public void displayAccountComparisonReport() {
@@ -231,4 +241,22 @@ public class FinanceManager {
     public AccountService getAccountService() { return accountService; }
     public TransactionService getTransactionService() { return transactionService; }
     public LoanService getLoanService() { return loanService; }
+
+    public void repayLoan(String loanId, double amount) {
+        boolean success = loanService.repayLoan(loanId, amount);
+        if (!success) {
+            System.out.println("Tra no that bai!");
+        }
+    }
+
+    public void collectLending(String lendingId, double amount) {
+        boolean success = loanService.collectLending(lendingId, amount);
+        if (!success) {
+            System.out.println("Thu no that bai!");
+        }
+    }
+
+    public void displayUpcomingDueItems(int days) {
+        loanService.displayUpcomingDueItems(days);
+    }
 }

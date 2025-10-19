@@ -298,7 +298,11 @@ public class Main {
             System.out.println("2. Them khoan cho vay moi");
             System.out.println("3. Xem danh sach khoan vay");
             System.out.println("4. Xem danh sach khoan cho vay");
-            System.out.println("5. Quay lai");
+            System.out.println("5. Tra no khoan vay");
+            System.out.println("6. Thu no khoan cho vay");
+            System.out.println("7. Xem cac khoan sap den han");
+            System.out.println("8. Quay lai");
+
             choice = getIntInput("Chon chuc nang: ");
 
             switch (choice) {
@@ -315,12 +319,21 @@ public class Main {
                     financeManager.displayAllLendings();
                     break;
                 case 5:
+                    repayLoan();
+                    break;
+                case 6:
+                    collectLending();
+                    break;
+                case 7:
+                    displayUpcomingDueItems();
+                    break;
+                case 8:
                     System.out.println("Quay lai menu chinh...");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while (choice != 5);
+        } while (choice != 8);
     }
 
     private static void addNewLoan() {
@@ -333,10 +346,14 @@ public class Main {
 
         double interestRate = getDoubleInput("Nhap lai suat (%): ");
 
+        // THÊM: Nhập số tháng vay
+        int months = getIntInput("Nhap so thang vay: ");
+
         System.out.print("Nhap mo ta: ");
         String description = scanner.nextLine();
 
-        financeManager.addLoan(lender, amount, interestRate, description);
+        // SỬA: Gọi method với số tháng
+        financeManager.addLoan(lender, amount, interestRate, months, description);
     }
 
     private static void addNewLending() {
@@ -349,10 +366,14 @@ public class Main {
 
         double interestRate = getDoubleInput("Nhap lai suat (%): ");
 
+        // THÊM: Nhập số tháng cho vay
+        int months = getIntInput("Nhap so thang cho vay: ");
+
         System.out.print("Nhap mo ta: ");
         String description = scanner.nextLine();
 
-        financeManager.addLending(borrower, amount, interestRate, description);
+        // SỬA: Gọi method với số tháng
+        financeManager.addLending(borrower, amount, interestRate, months, description);
     }
 
     // Utility methods for input validation
@@ -378,5 +399,28 @@ public class Main {
                 System.out.println("Vui long nhap so hop le!");
             }
         }
+    }
+
+    private static void repayLoan() {
+        System.out.println("\n--- TRA NO KHOAN VAY ---");
+        financeManager.displayAllLoans();
+        System.out.print("Nhap ID khoan vay can tra no: ");
+        String loanId = scanner.nextLine();
+        double amount = getDoubleInput("Nhap so tien tra no: ");
+        financeManager.repayLoan(loanId, amount);
+    }
+
+    private static void collectLending() {
+        System.out.println("\n--- THU NO KHOAN CHO VAY ---");
+        financeManager.displayAllLendings();
+        System.out.print("Nhap ID khoan cho vay can thu no: ");
+        String lendingId = scanner.nextLine();
+        double amount = getDoubleInput("Nhap so tien thu no: ");
+        financeManager.collectLending(lendingId, amount);
+    }
+
+    private static void displayUpcomingDueItems() {
+        int days = getIntInput("Nhap so ngay sap toi can kiem tra: ");
+        financeManager.displayUpcomingDueItems(days);
     }
 }

@@ -62,24 +62,24 @@ public class Validator {
     }
 
     // Loan validation
-    public static ValidationResult validateLoan(String lenderName, double amount,
-                                                double interestRate, String description) {
+    public static ValidationResult validateLoan(String name, double amount, double interest,
+                                                String description, int months) {
         ValidationResult result = new ValidationResult();
 
-        if (!isValidName(lenderName)) {
-            result.addError("Tên người cho vay phải từ 2-50 ký tự");
+        if (name == null || name.trim().isEmpty()) {
+            result.addError("Ten khong duoc de trong");
         }
-
-        if (!isValidPositiveAmount(amount)) {
-            result.addError("Số tiền vay phải lớn hơn 0");
+        if (amount <= 0) {
+            result.addError("So tien phai lon hon 0");
         }
-
-        if (!isValidInterestRate(interestRate)) {
-            result.addError("Lãi suất phải từ 0-100%");
+        if (interest < 0) {
+            result.addError("Lai suat khong duoc am");
         }
-
-        if (!isValidDescription(description)) {
-            result.addError("Mô tả không được vượt quá 200 ký tự");
+        if (months <= 0) {
+            result.addError("So thang phai lon hon 0");
+        }
+        if (description == null || description.trim().isEmpty()) {
+            result.addError("Mo ta khong duoc de trong");
         }
 
         return result;
