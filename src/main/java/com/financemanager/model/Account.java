@@ -1,6 +1,13 @@
 package com.financemanager.model;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Comparator;
+
 
 public class Account {
     private String accountId;
@@ -108,6 +115,149 @@ public class Account {
         );
         return Math.max(minWidth, calculatedWidth + 2);
     }
+
+    public void generateAccountReport(List<Transaction> allTransactions) {
+        List<Transaction> accountTransactions = filterTransactionsByAccount(allTransactions);
+
+        // HIỂN THỊ HEADER VỚI ID TÀI KHOẢN
+        String accountHeader = "=".repeat(80);
+        System.out.println(accountHeader);
+        System.out.println("TAI KHOAN ID: " + this.accountId + " - " + this.accountName);
+        System.out.println(accountHeader);
+
+        if (accountTransactions.isEmpty()) {
+            System.out.println("Khong co giao dich nao cho tai khoan nay!");
+            System.out.println(accountHeader);
+            return;
+        }
+
+        displayDetailedAccountReport(accountTransactions);
+
+        // FOOTER SAU KHI HIỂN THỊ BÁO CÁO
+        System.out.println(accountHeader);
+        System.out.println("KET THUC BAO CAO TAI KHOAN: " + this.accountId);
+        System.out.println(accountHeader);
+    }
+
+    private List<Transaction> filterTransactionsByAccount(List<Transaction> allTransactions) {
+        return allTransactions.stream()
+                .filter(transaction -> transaction.getAccountId().equals(this.accountId))
+                .sorted((t1, t2) -> t2.getDate().compareTo(t1.getDate()))
+                .collect(Collectors.toList());
+    }
+
+    private void displayDetailedAccountReport(List<Transaction> transactions) {
+        String header = "==============================================================";
+        String separator = "--------------------------------------------------------------";
+
+        System.out.println(header);
+        System.out.printf("| %-60s |\n", "BAO CAO TAI KHOAN: " + this.accountName);
+        System.out.println(separator);
+
+        // Thong ke tong quan
+        double totalIncome = calculateTotalIncome(transactions);
+        double totalExpense = calculateTotalExpense(transactions);
+        double netFlow = totalIncome - totalExpense;
+
+        System.out.printf("| %-60s |\n", "TONG QUAN TAI KHOAN");
+        System.out.printf("| %-60s |\n", "+----------------------------------------------------+");
+        System.out.printf("| %-60s |\n", String.format("| So du hien tai: %,.2f %s", this.balance, this.currency));
+        System.out.printf("| %-60s |\n", String.format("| Tong thu nhap:  %,.2f %s", totalIncome, this.currency));
+        System.out.printf("| %-60s |\n", String.format("| Tong chi tieu:  %,.2f %s", totalExpense, this.currency));
+        System.out.printf("| %-60s |\n", String.format("| Luong tien rong: %,.2f %s", netFlow, this.currency));
+        System.out.printf("| %-60s |\n", "+----------------------------------------------------+");
+        System.out.println(separator);
+
+        // Phan loai theo danh muc
+        displayCategoryBreakdown(transactions);
+        System.out.println(separator);
+
+        // Giao dich gan day
+        displayRecentTransactions(transactions);
+
+        System.out.println(header);
+    }
+
+    private double calculateTotalIncome(List<Transaction> transactions) {
+        return transactions.stream()
+                .filter(t -> t.getType() == TransactionType.INCOME)
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
+    private double calculateTotalExpense(List<Transaction> transactions) {
+        return transactions.stream()
+                .filter(t -> t.getType() == TransactionType.EXPENSE)
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
+    private void displayCategoryBreakdown(List<Transaction> transactions) {
+        Map<String, Double> incomeByCategory = new HashMap<>();
+        Map<String, Double> expenseByCategory = new HashMap<>();
+
+        for (Transaction transaction : transactions) {
+            String categoryName = transaction.getCategory().getName();
+            double amount = transaction.getAmount();
+
+            if (transaction.getType() == TransactionType.INCOME) {
+                incomeByCategory.merge(categoryName, amount, Double::sum);
+            } else {
+                expenseByCategory.merge(categoryName, amount, Double::sum);
+            }
+        }
+
+        System.out.printf("║ %-60s ║\n", " PHÂN LOẠI THEO DANH MỤC");
+
+        if (!incomeByCategory.isEmpty()) {
+            System.out.printf("| %-60s |\n", "THU NHAP:");
+            incomeByCategory.entrySet().stream()
+                    .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                    .forEach(entry -> {
+                        String line = String.format("  - %-15s: %,.2f %s",
+                                entry.getKey(), entry.getValue(), this.currency);
+                        System.out.printf("| %-60s |\n", line);
+                    });
+        }
+
+        if (!expenseByCategory.isEmpty()) {
+            System.out.printf("| %-60s |\n", "CHI TIEU:");
+            expenseByCategory.entrySet().stream()
+                    .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                    .forEach(entry -> {
+                        String line = String.format("  - %-15s: %,.2f %s",
+                                entry.getKey(), entry.getValue(), this.currency);
+                        System.out.printf("| %-60s |\n", line);
+                    });
+        }
+    }
+
+    private void displayRecentTransactions(List<Transaction> transactions) {
+        System.out.printf("| %-60s |\n", "GIAO DICH GAN DAY (5 giao dich moi nhat)");
+
+        List<Transaction> recentTransactions = transactions.stream()
+                .limit(5)
+                .collect(Collectors.toList());
+
+        for (Transaction transaction : recentTransactions) {
+            String typeSymbol = transaction.getType() == TransactionType.INCOME ? "[+]" : "[-]";
+
+            String line = String.format("%s %s %-15s: %,.2f %s",
+                    typeSymbol,
+                    transaction.getFormattedDate().substring(0, 10),
+                    transaction.getCategory().getName(),
+                    transaction.getAmount(),
+                    transaction.getDescription());
+
+            // Cat bot neu qua dai
+            if (line.length() > 58) {
+                line = line.substring(0, 55) + "...";
+            }
+
+            System.out.printf("| %-60s |\n", line);
+        }
+    }
+
 
     @Override
     public String toString() {

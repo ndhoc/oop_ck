@@ -128,6 +128,46 @@ public class TransactionService {
                 .sum();
     }
 
+    public void generateAccountReport(String accountId) {
+        Optional<Account> accountOpt = accountService.findAccountById(accountId);
+
+        if (accountOpt.isEmpty()) {
+            // HIỂN THỊ ID NGAY CẢ KHI KHÔNG TÌM THẤY
+            String errorHeader = "=".repeat(80);
+            System.out.println(errorHeader);
+            System.out.println("TAI KHOAN ID: " + accountId + " - KHONG TIM THAY");
+            System.out.println(errorHeader);
+            System.out.println("Khong tim thay tai khoan voi ID: " + accountId);
+            System.out.println(errorHeader);
+            return;
+        }
+
+        Account account = accountOpt.get();
+        account.generateAccountReport(transactions);
+    }
+
+    public void displayAllAccountReports() {
+        List<Account> accounts = accountService.getAllAccounts();
+
+        if (accounts.isEmpty()) {
+            System.out.println("Không có tài khoản nào trong hệ thống!");
+            return;
+        }
+
+        for (Account account : accounts) {
+            System.out.println("\n" + "=".repeat(80));
+            account.generateAccountReport(transactions);
+            System.out.println("=".repeat(80));
+        }
+    }
+
+    // Thêm method để lấy transactions theo account
+    public List<Transaction> getTransactionsByAccount(String accountId) {
+        return transactions.stream()
+                .filter(transaction -> transaction.getAccountId().equals(accountId))
+                .collect(Collectors.toList());
+    }
+
     public List<Transaction> getAllTransactions() {
         return new ArrayList<>(transactions);
     }

@@ -1,6 +1,5 @@
 package com.financemanager;
-//aaaaaaaa
-//bbbbbbbbb
+
 import com.financemanager.service.FinanceManager;
 import java.util.Scanner;
 
@@ -141,37 +140,78 @@ public class Main {
         int choice;
         do {
             System.out.println("\n=== BAO CAO & THONG KE ===");
-            System.out.println("1. Bao cao tong quan tai chinh");
-            System.out.println("2. Bao cao thu chi");
-            System.out.println("3. Bao cao vay & cho vay");
-            System.out.println("4. Bao cao hang thang");
-            System.out.println("5. Xuat du lieu CSV");
-            System.out.println("6. Quay lai");
+            System.out.println("1. Bao cao tai khoan");
+            System.out.println("2. Bao cao tong quan tai chinh");
+            System.out.println("3. Bao cao thu chi");
+            System.out.println("4. Bao cao vay & cho vay");
+            System.out.println("5. Bao cao hang thang");
+            System.out.println("6. Xuat du lieu CSV");
+            System.out.println("7. Quay lai");
             choice = getIntInput("Chon chuc nang: ");
 
             switch (choice) {
-                case 1:
+                case 1: // BAO CÁO TÀI KHOẢN - VỊ TRÍ MỚI
+                    manageAccountReports();
+                    break;
+                case 2: // CÁC CHỨC NĂNG KHÁC DỜI XUỐNG
                     financeManager.generateFinancialReport();
                     break;
-                case 2:
+                case 3:
                     financeManager.generateIncomeExpenseReport();
                     break;
-                case 3:
+                case 4:
                     financeManager.generateLoanReport();
                     break;
-                case 4:
+                case 5:
                     financeManager.generateMonthlyReport();
                     break;
-                case 5:
+                case 6:
                     financeManager.exportToCSV();
                     break;
-                case 6:
+                case 7:
                     System.out.println("Quay lai menu chinh...");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while (choice != 6);
+        } while (choice != 7);
+    }
+
+    // update: bao cao tai chinh cho tung tai khoan
+    private static void manageAccountReports() {
+        int choice;
+        do {
+            System.out.println("\n=== BAO CAO TAI KHOAN ===");
+            System.out.println("1. Bao cao cho tung tai khoan");
+            System.out.println("2. Xem tat ca bao cao tai khoan");
+            System.out.println("3. So sanh cac tai khoan");
+            System.out.println("4. Quay lai");
+            choice = getIntInput("Chon chuc nang: ");
+
+            switch (choice) {
+                case 1:
+                    generateAccountReport();
+                    break;
+                case 2:
+                    financeManager.displayAllAccountReports();
+                    break;
+                case 3:
+                    financeManager.displayAccountComparisonReport();
+                    break;
+                case 4:
+                    System.out.println("Quay lai menu bao cao...");
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+        } while (choice != 4);
+    }
+
+    // THÊM MỚI - TẠO BÁO CÁO CHO TỪNG TÀI KHOẢN
+    private static void generateAccountReport() {
+        System.out.print("Nhap ID tai khoan can xem bao cao: ");
+        String accountId = scanner.nextLine();
+        financeManager.generateAccountReport(accountId);
     }
 
     private static void addNewAccount() {

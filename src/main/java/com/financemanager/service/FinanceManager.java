@@ -150,6 +150,75 @@ public class FinanceManager {
         loanService.addLending(lending);
     }
 
+    public void generateAccountReport(String accountId) {
+        transactionService.generateAccountReport(accountId);
+    }
+
+    public void displayAllAccountReports() {
+        List<Account> accounts = accountService.getAllAccounts();
+
+        if (accounts.isEmpty()) {
+            System.out.println("Khong co tai khoan nao trong he thong!");
+            return;
+        }
+
+        for (Account account : accounts) {
+            account.generateAccountReport(transactionService.getAllTransactions());
+            System.out.println();
+        }
+    }
+
+    public void displayAccountComparisonReport() {
+        List<Account> accounts = accountService.getAllAccounts();
+
+        if (accounts.isEmpty()) {
+            System.out.println("Không có tài khoản nào!");
+            return;
+        }
+
+        String header = "╔══════════════════════════════════════════════════════════════╗";
+        String separator = "╠══════════════════════════════════════════════════════════════╣";
+        String footer = "╚══════════════════════════════════════════════════════════════╝";
+
+        System.out.println(header);
+        System.out.printf("║ \u001B[1;36m%-60s\u001B[0m ║\n", "SO SÁNH TẤT CẢ TÀI KHOẢN");
+        System.out.println(separator);
+
+        double totalBalance = 0;
+        for (Account account : accounts) {
+            List<Transaction> accountTransactions = transactionService.getTransactionsByAccount(account.getAccountId());
+            double accountIncome = calculateAccountIncome(accountTransactions);
+            double accountExpense = calculateAccountExpense(accountTransactions);
+
+            System.out.printf("║ %-60s ║\n",account.getAccountName());
+            System.out.printf("║ %-60s ║\n",
+                    String.format("   Số dư: %,.2f %s | Thu: %,.2f | Chi: %,.2f",
+                            account.getBalance(), account.getCurrency(), accountIncome, accountExpense));
+            System.out.printf("║ %-60s ║\n", "  " + "-".repeat(56));
+
+            totalBalance += account.getBalance();
+        }
+
+        System.out.println(separator);
+        System.out.printf("║ \u001B[1;32m%-60s\u001B[0m ║\n",
+                String.format("TỔNG SỐ DƯ TẤT CẢ TÀI KHOẢN: %,.2f VND", totalBalance));
+        System.out.println(footer);
+    }
+
+    private double calculateAccountIncome(List<Transaction> transactions) {
+        return transactions.stream()
+                .filter(t -> t.getType() == TransactionType.INCOME)
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
+    private double calculateAccountExpense(List<Transaction> transactions) {
+        return transactions.stream()
+                .filter(t -> t.getType() == TransactionType.EXPENSE)
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+    }
+
     public void displayAllLoans() {
         loanService.displayAllLoans();
     }
