@@ -1,6 +1,6 @@
 ### OOP
 
-Task 18/10/2025 (Deadline 19/10/2025)
+Task 18/10/2025 (Deadline 19/10/2025) - **7h30 đã gộp**
 
 1. Quan ly tai khoan -- Nhất
 2. Quan ly giao dich -- Huy
