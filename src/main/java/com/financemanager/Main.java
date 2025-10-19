@@ -220,8 +220,27 @@ public class Main {
         System.out.print("Nhap ten tai khoan: ");
         String name = scanner.nextLine();
 
-        System.out.print("Nhap loai tai khoan (Chỉ có các loại sau đây: BANK, E-WALLET, CASH, SAVINGS, CREDIT): ");
-        String type = scanner.nextLine();
+        String[] validTypes = {"BANK", "WALLET", "CASH", "SAVINGS", "CREDIT"};
+
+        String type;
+        while (true) {
+            System.out.print("Nhap loai tai khoan (BANK/WALLET/CASH/SAVINGS/CREDIT): ");
+            type = scanner.nextLine().toUpperCase();
+
+            boolean isValid = false;
+            for (String validType : validTypes) {
+                if (type.equals(validType)) {
+                    isValid = true;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                break;
+            } else {
+                System.out.println("Loai tai khoan khong hop le! Vui long nhap: " + String.join("/", validTypes));
+            }
+        }
 
         System.out.print("Nhap so tai khoan: ");
         String number = scanner.nextLine();
