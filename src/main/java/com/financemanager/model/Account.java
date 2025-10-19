@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Account {
     private String accountId;
     private String accountName;
-    private String accountType; // BANK, WALLET, etc.
+    private String accountType; // BANK, WALLEL, CASH
     private String accountNumber;
     private double balance;
     private String currency;
@@ -19,7 +19,7 @@ public class Account {
         this.currency = "VND";
     }
 
-    // Getter methods
+    // Nhap thong tin tai khoan
     public String getAccountId() { return accountId; }
     public String getAccountName() { return accountName; }
     public String getAccountType() { return accountType; }
@@ -27,17 +27,23 @@ public class Account {
     public double getBalance() { return balance; }
     public String getCurrency() { return currency; }
 
-    // Setter methods
-    public void setAccountName(String accountName) { this.accountName = accountName; }
-    public void setBalance(double balance) { this.balance = balance; }
+    // Phuong thuc tao lap
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
     // Business methods
+    // Nhận tiền
     public void deposit(double amount) {
         if (amount > 0) {
             this.balance += amount;
         }
     }
 
+    // Chuyển tiền
     public boolean withdraw(double amount) {
         if (amount > 0 && balance >= amount) {
             this.balance -= amount;
@@ -46,6 +52,7 @@ public class Account {
         return false;
     }
 
+    //Cập Nhật
     public void updateBalance(double amount, TransactionType type) {
         if (type == TransactionType.INCOME) {
             this.balance += amount;
@@ -56,20 +63,50 @@ public class Account {
 
     // Validation
     public boolean isValid() {
-        return accountName != null && !accountName.trim().isEmpty() &&
-                accountType != null && !accountType.trim().isEmpty() &&
-                balance >= 0;
+        return accountName != null && !accountName.trim().isEmpty() &&    // Tên không trống
+                accountType != null && !accountType.trim().isEmpty() &&   // Loại khoản hơp lệ
+                balance >= 0;   //Số dư không âm
     }
 
     // Display
     public void displayInfo() {
-        System.out.println("┌─────────────────────────────────────┐");
-        System.out.printf("│ ID: %-34s │\n", accountId);
-        System.out.printf("│ Ten: %-33s │\n", accountName);
-        System.out.printf("│ Loai: %-32s │\n", accountType);
-        System.out.printf("│ So TK: %-31s │\n", accountNumber);
-        System.out.printf("│ So du: %-28.2f %s │\n", balance, currency);
-        System.out.println("└─────────────────────────────────────┘");
+        // Tính độ rộng động dựa trên nội dung
+        int maxWidth = calculateMaxWidth();
+        String horizontalLine = "┌" + "─".repeat(maxWidth + 2) + "┐";
+        String middleLine = "├" + "─".repeat(maxWidth + 2) + "┤";
+        String bottomLine = "└" + "─".repeat(maxWidth + 2) + "┘";
+
+        System.out.println(horizontalLine);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "THÔNG TIN TÀI KHOẢN");
+        System.out.println(middleLine);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "ID: " + accountId);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Tên: " + accountName);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Loại: " + accountType);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Số TK: " + accountNumber);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n",
+                String.format("Số dư: %,.2f %s", balance, currency));
+        System.out.println(bottomLine);
+    }
+
+    private int calculateMaxWidth() {
+        int minWidth = 40;
+        int calculatedWidth = Math.max(
+                "💰 THÔNG TIN TÀI KHOẢN".length(),
+                Math.max(
+                        ("ID: " + accountId).length(),
+                        Math.max(
+                                ("Tên: " + accountName).length(),
+                                Math.max(
+                                        ("Loại: " + accountType).length(),
+                                        Math.max(
+                                                ("Số TK: " + accountNumber).length(),
+                                                ("Số dư: " + String.format("%,.2f %s", balance, currency)).length()
+                                        )
+                                )
+                        )
+                )
+        );
+        return Math.max(minWidth, calculatedWidth + 2);
     }
 
     @Override

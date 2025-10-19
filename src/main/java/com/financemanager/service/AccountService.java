@@ -14,6 +14,7 @@ public class AccountService {
         this.accounts = new ArrayList<>();
     }
 
+    // Them tai khoan
     public void addAccount(Account account) {
         if (account.isValid()) {
             accounts.add(account);
@@ -23,12 +24,14 @@ public class AccountService {
         }
     }
 
+    // Tim kiem tai khoan qua ID
     public Optional<Account> findAccountById(String accountId) {
         return accounts.stream()
                 .filter(account -> account.getAccountId().equals(accountId))
                 .findFirst();
     }
 
+    //Xem danh sach tai khoan
     public void displayAllAccounts() {
         if (accounts.isEmpty()) {
             System.out.println("Khong co tai khoan nao!");
@@ -47,6 +50,7 @@ public class AccountService {
         System.out.printf("TONG SO DU TAT CA TAI KHOAN: %.2f VND\n", totalBalance);
     }
 
+    // Xoa tai khoan
     public boolean deleteAccount(String accountId) {
         Optional<Account> accountOpt = findAccountById(accountId);
         if (accountOpt.isPresent()) {
@@ -59,6 +63,7 @@ public class AccountService {
         }
     }
 
+    //Chuyen khoan noi bo
     public boolean transferBetweenAccounts(String fromAccountId, String toAccountId, double amount)
             throws AccountNotFoundException, InsufficientBalanceException {
 

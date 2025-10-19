@@ -16,7 +16,7 @@ public class Constants {
 
     // Account types
     public static final String ACCOUNT_TYPE_BANK = "BANK";
-    public static final String ACCOUNT_TYPE_WALLET = "WALLET";
+    public static final String ACCOUNT_TYPE_WALLET = "E-WALLET";
     public static final String ACCOUNT_TYPE_SAVINGS = "SAVINGS";
     public static final String ACCOUNT_TYPE_CASH = "CASH";
     public static final String ACCOUNT_TYPE_CREDIT = "CREDIT";
@@ -91,23 +91,6 @@ public class Constants {
         public static String colorize(String text, String color) {
             return color + text + RESET;
         }
-    }
-
-    // Icons for console display
-    public static class Icons {
-        public static final String MONEY = "💰";
-        public static final String ACCOUNT = "🏦";
-        public static final String TRANSACTION = "💳";
-        public static final String INCOME = "📈";
-        public static final String EXPENSE = "📉";
-        public static final String LOAN = "🏦";
-        public static final String LENDING = "💵";
-        public static final String REPORT = "📊";
-        public static final String SAVINGS = "🎯";
-        public static final String WARNING = "⚠️";
-        public static final String SUCCESS = "✅";
-        public static final String ERROR = "❌";
-        public static final String INFO = "ℹ️";
     }
 
     // Validation messages

@@ -4,7 +4,7 @@ package com.financemanager;
 import com.financemanager.service.FinanceManager;
 import java.util.Scanner;
 
-public class Main {// ldshljfalsfas
+public class Main {
     private static FinanceManager financeManager = new FinanceManager();
     private static Scanner scanner = new Scanner(System.in);
 
@@ -180,7 +180,7 @@ public class Main {// ldshljfalsfas
         System.out.print("Nhap ten tai khoan: ");
         String name = scanner.nextLine();
 
-        System.out.print("Nhap loai tai khoan (Vi du: BANK, WALLET): ");
+        System.out.print("Nhap loai tai khoan (Chỉ có các loại sau đây: BANK, E-WALLET, CASH, SAVINGS, CREDIT): ");
         String type = scanner.nextLine();
 
         System.out.print("Nhap so tai khoan: ");

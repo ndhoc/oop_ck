@@ -23,7 +23,7 @@ public class Validator {
         }
 
         if (!isValidAccountType(accountType)) {
-            result.addError("Loại tài khoản không hợp lệ. Ví dụ: BANK, WALLET, SAVINGS");
+            result.addError("Loại tài khoản không hợp lệ. Chỉ được sử dụng: BANK, E-WALLET, SAVINGS, CASH, CREDIT");
         }
 
         if (!isValidAccountNumber(accountNumber)) {
@@ -99,7 +99,8 @@ public class Validator {
                 (accountType.equalsIgnoreCase("BANK") ||
                         accountType.equalsIgnoreCase("WALLET") ||
                         accountType.equalsIgnoreCase("SAVINGS") ||
-                        accountType.equalsIgnoreCase("CASH"));
+                        accountType.equalsIgnoreCase("CASH")) ||
+                        accountType.equalsIgnoreCase("CREDIT");
     }
 
     public static boolean isValidTransactionType(String type) {
