@@ -50,6 +50,7 @@ public class ReportService {
 } else {
     System.out.println("TY LE CHI TIEU/THU NHAP: N/A (khong co du lieu thu nhap)");
     System.out.println("TY LE TIET KIEM: N/A (khong co du lieu thu nhap)");
+    }
 }
 
     // Báo cáo thu nhập và chi tiêu theo khoảng thời gian
