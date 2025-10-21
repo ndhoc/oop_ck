@@ -280,7 +280,17 @@ public class Main {
         }
 
         System.out.print("Nhap so tai khoan: ");
-        String number = scanner.nextLine();
+        String number;
+        while (true) {
+            number = scanner.nextLine();
+            Validator.ValidationResult result = Validator.validateAccountNumber(number);
+            if (result.isValid()) {
+                break;
+            } else {
+                result.printErrors();
+                System.out.print("Vui long nhap lai so tai khoan: ");
+            }
+        }
 
         // SỬA: Validate số dư ban đầu với input string
         double balance;

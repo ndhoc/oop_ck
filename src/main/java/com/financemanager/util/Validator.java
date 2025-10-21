@@ -26,8 +26,9 @@ public class Validator {
             result.addError("Loại tài khoản không hợp lệ. Chỉ được sử dụng: BANK, E-WALLET, SAVINGS, CASH, CREDIT");
         }
 
-        if (!isValidAccountNumber(accountNumber)) {
-            result.addError("Số tài khoản phải từ 5-20 ký tự và chỉ chứa chữ cái, số");
+        ValidationResult accountNumberResult = validateAccountNumber(accountNumber);
+        if (!accountNumberResult.isValid()) {
+            result.getErrors().addAll(accountNumberResult.getErrors());
         }
 
         if (!isValidAmount(balance)) {
@@ -154,6 +155,28 @@ public class Validator {
 
         } catch (NumberFormatException e) {
             result.addError("So du ban dau khong hop le");
+        }
+
+        return result;
+    }
+
+    public static ValidationResult validateAccountNumber(String accountNumber) {
+        ValidationResult result = new ValidationResult();
+
+        if (accountNumber == null || accountNumber.trim().isEmpty()) {
+            result.addError("So tai khoan khong duoc de trong");
+            return result;
+        }
+
+        // Kiểm tra chỉ chứa số
+        if (!accountNumber.matches("^[0-9]+$")) {
+            result.addError("So tai khoan chi duoc chua so");
+            return result;
+        }
+
+        // Kiểm tra độ dài
+        if (accountNumber.length() < 5 || accountNumber.length() > 30) {
+            result.addError("So tai khoan phai tu 5 den 30 chu so");
         }
 
         return result;
