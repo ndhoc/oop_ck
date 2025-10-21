@@ -1,6 +1,8 @@
 package com.financemanager;
 
 import com.financemanager.service.FinanceManager;
+import com.financemanager.util.Validator;
+
 import java.util.Scanner;
 
 public class Main {
@@ -63,7 +65,8 @@ public class Main {
             System.out.println("3. Xoa tai khoan");
             System.out.println("4. Chuyen khoan noi bo");
             System.out.println("5. Tim kiem tai khoan theo ten");
-            System.out.println("6. Quay lai");
+            System.out.println("6. Them tien vao tai khoan"); // THÊM CHỨC NĂNG MỚI
+            System.out.println("7. Quay lai");
             choice = getIntInput("Chon chuc nang: ");
 
             switch (choice) {
@@ -82,13 +85,47 @@ public class Main {
                 case 5:
                     searchAccountByName();
                     break;
-                case 6:
+                case 6: // THÊM CHỨC NĂNG MỚI
+                    depositToAccount();
+                    break;
+                case 7:
                     System.out.println("Quay lai menu chinh...");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while (choice != 6);
+        } while (choice != 7);
+    }
+
+    private static void depositToAccount() {
+        System.out.println("\n--- THEM TIEN VAO TAI KHOAN ---");
+
+        financeManager.displayAllAccounts();
+
+        System.out.print("Nhap ID tai khoan can them tien: ");
+        String accountId = scanner.nextLine();
+
+        // SỬA: Validate số tiền với input string
+        double amount;
+        while (true) {
+            System.out.print("Nhap so tien can them: ");
+            String amountStr = scanner.nextLine();
+
+            try {
+                amount = Double.parseDouble(amountStr);
+                Validator.ValidationResult result = Validator.validateDeposit(accountId, amount, amountStr);
+                if (result.isValid()) {
+                    break;
+                } else {
+                    result.printErrors();
+                    System.out.println("Vui long nhap lai.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("So tien khong hop le! Vui long nhap lai.");
+            }
+        }
+
+        financeManager.depositToAccount(accountId, amount);
     }
 
     private static void searchAccountByName() {
@@ -245,7 +282,25 @@ public class Main {
         System.out.print("Nhap so tai khoan: ");
         String number = scanner.nextLine();
 
-        double balance = getDoubleInput("Nhap so du ban dau: ");
+        // SỬA: Validate số dư ban đầu với input string
+        double balance;
+        while (true) {
+            System.out.print("Nhap so du ban dau: ");
+            String balanceStr = scanner.nextLine();
+
+            Validator.ValidationResult result = Validator.validateInitialBalance(balanceStr);
+            if (result.isValid()) {
+                try {
+                    balance = Double.parseDouble(balanceStr);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("So du khong hop le! Vui long nhap lai.");
+                }
+            } else {
+                result.printErrors();
+                System.out.println("Vui long nhap lai.");
+            }
+        }
 
         financeManager.addAccount(name, type, number, balance);
     }
@@ -393,14 +448,21 @@ public class Main {
         while (true) {
             try {
                 System.out.print(prompt);
-                double value = Double.parseDouble(scanner.nextLine());
+                String input = scanner.nextLine();
+
+                // Kiểm tra số 0 ở đầu
+                if (input.length() > 1 && input.startsWith("0")) {
+                    System.out.println("Khong duoc nhap so 0 o dau! Vui long nhap lai.");
+                    continue;
+                }
+
+                double value = Double.parseDouble(input);
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("Vui long nhap so hop le!");
+                System.out.println("Vui long nhap so hop le! (Vi du: 1000, 500.5)");
             }
         }
     }
-
     private static void repayLoan() {
         System.out.println("\n--- TRA NO KHOAN VAY ---");
         financeManager.displayAllLoans();

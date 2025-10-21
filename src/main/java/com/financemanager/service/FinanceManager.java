@@ -4,6 +4,7 @@ import com.financemanager.model.*;
 import com.financemanager.exception.*;
 import com.financemanager.util.Validator;
 import java.util.List;
+import java.util.Optional;
 
 public class FinanceManager {
     private AccountService accountService;
@@ -253,6 +254,21 @@ public class FinanceManager {
         boolean success = loanService.collectLending(lendingId, amount);
         if (!success) {
             System.out.println("Thu no that bai!");
+        }
+    }
+
+    public void depositToAccount(String accountId, double amount) {
+        // Validation sẽ được xử lý trong Main.java trước khi gọi phương thức này
+        Optional<Account> accountOpt = accountService.findAccountById(accountId);
+        if (accountOpt.isPresent()) {
+            Account account = accountOpt.get();
+            account.deposit(amount);
+            System.out.println("Them tien thanh cong!");
+            System.out.printf("Tai khoan: %s\n", account.getAccountName());
+            System.out.printf("So tien them: %,.2f %s\n", amount, account.getCurrency());
+            System.out.printf("So du moi: %,.2f %s\n", account.getBalance(), account.getCurrency());
+        } else {
+            System.out.println("Khong tim thay tai khoan voi ID: " + accountId);
         }
     }
 

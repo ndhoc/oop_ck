@@ -85,6 +85,66 @@ public class Validator {
         return result;
     }
 
+    public static ValidationResult validateDeposit(String accountId, double amount, String amountStr) {
+        ValidationResult result = new ValidationResult();
+
+        if (accountId == null || accountId.trim().isEmpty()) {
+            result.addError("ID tai khoan khong duoc de trong");
+        }
+
+        if (!isValidAmountFormat(amountStr)) {
+            result.addError("So tien khong hop le. Khong duoc co so 0 o dau va chi chua so");
+        }
+
+        if (amount <= 0) {
+            result.addError("So tien them phai lon hon 0");
+        }
+
+        if (amount > 1000000000) {
+            result.addError("So tien them vuot qua gioi han cho phep (1 ty)");
+        }
+
+        return result;
+    }
+
+    public static boolean isValidAmountFormat(String amountStr) {
+        if (amountStr == null || amountStr.trim().isEmpty()) {
+            return false;
+        }
+
+        // Kiểm tra không có số 0 ở đầu (trừ số 0 đơn lẻ)
+        if (amountStr.length() > 1 && amountStr.startsWith("0")) {
+            return false;
+        }
+
+        // Kiểm tra chỉ chứa số và tối đa 2 chữ số thập phân
+        return amountStr.matches("^\\d+(\\.\\d{1,2})?$");
+    }
+
+    public static ValidationResult validateInitialBalance(String balanceStr) {
+        ValidationResult result = new ValidationResult();
+
+        if (balanceStr == null || balanceStr.trim().isEmpty()) {
+            result.addError("So du ban dau khong duoc de trong");
+            return result;
+        }
+
+        if (!isValidAmountFormat(balanceStr)) {
+            result.addError("So du ban dau khong hop le. Khong duoc co so 0 o dau va chi chua so");
+        }
+
+        try {
+            double balance = Double.parseDouble(balanceStr);
+            if (balance < 0) {
+                result.addError("So du ban dau khong duoc am");
+            }
+        } catch (NumberFormatException e) {
+            result.addError("So du ban dau khong hop le");
+        }
+
+        return result;
+    }
+
     // Individual validation methods
     public static boolean isValidName(String name) {
         return name != null && NAME_PATTERN.matcher(name).matches();

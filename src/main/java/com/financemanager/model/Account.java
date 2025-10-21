@@ -46,7 +46,13 @@ public class Account {
     // Nhận tiền
     public void deposit(double amount) {
         if (amount > 0) {
+            double oldBalance = this.balance;
             this.balance += amount;
+            System.out.println("Da them " + String.format("%,.0f", amount) + " " + currency + " vao tai khoan");
+            System.out.println("So du cu: " + String.format("%,.0f", oldBalance) + " " + currency);
+            System.out.println("So du moi: " + String.format("%,.0f", this.balance) + " " + currency);
+        } else {
+            System.out.println("So tien them phai lon hon 0!");
         }
     }
 

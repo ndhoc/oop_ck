@@ -97,6 +97,23 @@ public class AccountService {
         return true;
     }
 
+    public boolean depositToAccount(String accountId, double amount) {
+        if (amount <= 0) {
+            System.out.println("So tien them phai lon hon 0!");
+            return false;
+        }
+
+        Optional<Account> accountOpt = findAccountById(accountId);
+        if (accountOpt.isPresent()) {
+            Account account = accountOpt.get();
+            account.deposit(amount);
+            return true;
+        } else {
+            System.out.println("Khong tim thay tai khoan voi ID: " + accountId);
+            return false;
+        }
+    }
+
     public double getTotalBalance() {
         return accounts.stream()
                 .mapToDouble(Account::getBalance)
