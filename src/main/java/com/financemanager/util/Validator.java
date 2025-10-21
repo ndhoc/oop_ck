@@ -92,12 +92,15 @@ public class Validator {
             result.addError("ID tai khoan khong duoc de trong");
         }
 
-        if (!isValidAmountFormat(amountStr)) {
-            result.addError("So tien khong hop le. Khong duoc co so 0 o dau va chi chua so");
-        }
-
+        // Kiểm tra số âm trước
         if (amount <= 0) {
             result.addError("So tien them phai lon hon 0");
+            return result; // Return ngay để không kiểm tra format
+        }
+
+        // Chỉ kiểm tra format khi số tiền > 0
+        if (amountStr != null && !isValidAmountFormat(amountStr)) {
+            result.addError("So tien khong hop le. Khong duoc co so 0 o dau va chi chua so");
         }
 
         if (amount > 1000000000) {
