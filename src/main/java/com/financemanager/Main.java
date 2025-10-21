@@ -286,7 +286,7 @@ public class Main {
         double balance;
         while (true) {
             System.out.print("Nhap so du ban dau: ");
-            String balanceStr = scanner.nextLine();
+            String balanceStr = scanner.nextLine().trim();
 
             Validator.ValidationResult result = Validator.validateInitialBalance(balanceStr);
             if (result.isValid()) {

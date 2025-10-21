@@ -132,15 +132,26 @@ public class Validator {
             return result;
         }
 
-        if (!isValidAmountFormat(balanceStr)) {
-            result.addError("So du ban dau khong hop le. Khong duoc co so 0 o dau va chi chua so");
+        // Kiểm tra nếu có ký tự không phải số
+        if (!balanceStr.matches("^[-]?\\d*(\\.\\d*)?$")) {
+            result.addError("So du ban dau chi duoc chua so va dau cham");
+            return result;
         }
 
         try {
             double balance = Double.parseDouble(balanceStr);
+
+            // Kiểm tra số âm
             if (balance < 0) {
                 result.addError("So du ban dau khong duoc am");
+                return result;
             }
+
+            // CHỈ kiểm tra số 0 ở đầu khi số tiền > 0
+            if (balance > 0 && balanceStr.length() > 1 && balanceStr.startsWith("0")) {
+                result.addError("So du ban dau khong duoc co so 0 o dau");
+            }
+
         } catch (NumberFormatException e) {
             result.addError("So du ban dau khong hop le");
         }
