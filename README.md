@@ -48,7 +48,7 @@ Xem tại [đây](/tree.txt)
 ### 🧱 Yêu cầu
 - **JDK 17** trở lên  
 - IDE: IntelliJ IDEA / VS Code / Eclipse  
-- Cấu trúc project theo chuẩn Maven hoặc Gradle (tùy môi trường học tập)
+- Cấu trúc project theo chuẩn Maven hoặc Gradle
 
 ### ▶️ Chạy chương trình
 ```bash
