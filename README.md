@@ -39,7 +39,7 @@ Dự án được phát triển phục vụ mục đích **học tập môn OOP*
 
 ## 🏗️ Cấu trúc thư mục
 
-see tree [here](/tree.txt)
+Xem tại [đây](/tree.txt)
 
 ---
 
