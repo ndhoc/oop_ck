@@ -272,7 +272,4 @@ public class FinanceManager {
         }
     }
 
-    public void displayUpcomingDueItems(int days) {
-        loanService.displayUpcomingDueItems(days);
-    }
 }

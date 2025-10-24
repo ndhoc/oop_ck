@@ -51,15 +51,46 @@ public class Transaction {
 
     // Display
     public void displayInfo() {
-        System.out.println("┌─────────────────────────────────────┐");
-        System.out.printf("│ ID: %-34s │\n", transactionId);
-        System.out.printf("│ Tai khoan: %-26s │\n", accountId);
-        System.out.printf("│ Loai: %-32s │\n", type.getVietnameseName());
-        System.out.printf("│ So tien: %-28.2f │\n", amount);
-        System.out.printf("│ Danh muc: %-27s │\n", category.getName());
-        System.out.printf("│ Mo ta: %-30s │\n", description);
-        System.out.printf("│ Thoi gian: %-26s │\n", getFormattedDate());
-        System.out.println("└─────────────────────────────────────┘");
+        int maxWidth = calculateMaxWidth();
+        String horizontalLine = "┌" + "─".repeat(maxWidth + 2) + "┐";
+        String middleLine = "├" + "─".repeat(maxWidth + 2) + "┤";
+        String bottomLine = "└" + "─".repeat(maxWidth + 2) + "┘";
+
+        System.out.println(horizontalLine);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "THÔNG TIN GIAO DỊCH");
+        System.out.println(middleLine);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "ID: " + transactionId);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Tài khoản: " + accountId);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Loại: " + type.getVietnameseName());
+        System.out.printf("│ %-" + (maxWidth) + "s │\n",
+                String.format("Số tiền: %,.2f", amount));
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Danh mục: " + category.getName());
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Mô tả: " + description);
+        System.out.printf("│ %-" + (maxWidth) + "s │\n", "Thời gian: " + getFormattedDate());
+        System.out.println(bottomLine);
+    }
+
+    private int calculateMaxWidth() {
+        int maxWidth = "THÔNG TIN GIAO DỊCH".length();
+
+        // Tính độ dài của từng dòng content
+        String[] contents = {
+                "ID: " + transactionId,
+                "Tài khoản: " + accountId,
+                "Loại: " + type.getVietnameseName(),
+                String.format("Số tiền: %,.2f", amount),
+                "Danh mục: " + category.getName(),
+                "Mô tả: " + description,
+                "Thời gian: " + getFormattedDate()
+        };
+
+        for (String content : contents) {
+            if (content.length() > maxWidth) {
+                maxWidth = content.length();
+            }
+        }
+
+        return maxWidth;
     }
 
     @Override

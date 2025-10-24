@@ -1,9 +1,13 @@
-### OOP
+### Fix chức năng quản lý khoản vay (chatgpt)
 
-Task 18/10/2025 (Deadline 19/10/2025) - **7h30 đã gộp**
+- Fix bug validation - Ngăn chặn dữ liệu không hợp lệ
 
-1. Quan ly tai khoan -- Nhất
-2. Quan ly giao dich -- Huy
-3. Quan ly khoan vay -- Học
-4. Quan ly cho vay -- Lĩnh
-4. Bao cao & Thong ke -- Khải
+- Thêm "tháng cho vay" - Tính toán chính xác theo thời gian thực tế
+
+- Tính lãi suất chính xác - Theo số tháng thực tế
+
+- Hiển thị chi tiết - Thông tin đầy đủ + lịch sử thanh toán
+
+- Cảnh báo thông minh - Sắp đến hạn, quá hạn
+
+- Báo cáo tổng quan - Tổng hợp tình hình vay/cho vay

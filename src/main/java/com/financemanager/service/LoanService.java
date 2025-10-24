@@ -317,38 +317,4 @@ public class LoanService {
         }
     }
 
-    // THÊM: Hiển thị khoản sắp đến hạn theo số ngày
-    public void displayUpcomingDueItems(int days) {
-        System.out.println("\nCAC KHOAN SAP DEN HAN (trong " + days + " ngay toi)");
-        System.out.println("=========================================");
-
-        List<Loan> dueLoans = getDueSoonLoans().stream()
-                .filter(loan -> loan.getRemainingMonths() <= 1) // Tương đương ~30 ngày
-                .collect(Collectors.toList());
-
-        List<Lending> dueLendings = getDueSoonLendings().stream()
-                .filter(lending -> lending.getRemainingMonths() <= 1)
-                .collect(Collectors.toList());
-
-        if (dueLoans.isEmpty() && dueLendings.isEmpty()) {
-            System.out.println("Khong co khoan nao sap den han!");
-            return;
-        }
-
-        if (!dueLoans.isEmpty()) {
-            System.out.println("KHOAN VAY SAP DEN HAN:");
-            for (Loan loan : dueLoans) {
-                System.out.printf(" - %s: %.2f VND (Con %d thang)\n",
-                        loan.getLenderName(), loan.getRemainingAmount(), loan.getRemainingMonths());
-            }
-        }
-
-        if (!dueLendings.isEmpty()) {
-            System.out.println("\nKHOAN CHO VAY SAP DEN HAN:");
-            for (Lending lending : dueLendings) {
-                System.out.printf(" - %s: %.2f VND (Con %d thang)\n",
-                        lending.getBorrowerName(), lending.getRemainingAmount(), lending.getRemainingMonths());
-            }
-        }
-    }
 }

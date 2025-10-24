@@ -93,7 +93,7 @@ public class Lending {
         return calculateTotalAmount() / lendingMonths;
     }
 
-    // SỬA LẠI: Tính số tháng còn lại chính xác
+    //Tính số tháng còn lại chính xác
     public long getRemainingMonths() {
         LocalDateTime now = LocalDateTime.now();
         if (now.isAfter(dueDate)) {
@@ -107,7 +107,7 @@ public class Lending {
         return Math.max(0, remaining);
     }
 
-    // SỬA LẠI: Kiểm tra sắp đến hạn
+    //Kiểm tra sắp đến hạn
     public boolean isDueSoon() {
         long remainingMonths = getRemainingMonths();
         return remainingMonths <= 1 && remainingMonths >= 0 && remainingAmount > 0;
@@ -122,11 +122,10 @@ public class Lending {
                 principalAmount > 0 && interestRate >= 0 && lendingMonths > 0;
     }
 
-    // SỬA LẠI: Display với định dạng cố định đẹp hơn
     public void displayInfo() {
-        System.out.println("┌────────────────────────────────────────────────────────────────┐");
+        System.out.println("┌──────────────────────────────────────────────────────────────────┐");
         System.out.printf("│ %-64s │\n", "THONG TIN KHOAN CHO VAY");
-        System.out.println("├────────────────────────────────────────────────────────────────┤");
+        System.out.println("├──────────────────────────────────────────────────────────────────┤");
         System.out.printf("│ %-20s: %-42s │\n", "ID", lendingId);
         System.out.printf("│ %-20s: %-42s │\n", "Nguoi vay", shortenString(borrowerName, 42));
         System.out.printf("│ %-20s: %-42s │\n", "So tien cho vay", formatCurrency(principalAmount) + " VND");
@@ -141,7 +140,7 @@ public class Lending {
         System.out.printf("│ %-20s: %-42s │\n", "Mo ta", shortenString(description, 42));
 
         // Hiển thị thông tin bổ sung
-        System.out.println("├────────────────────────────────────────────────────────────────┤");
+        System.out.println("├──────────────────────────────────────────────────────────────────┤");
 
         // Hiển thị số tháng còn lại
         long remainingMonths = getRemainingMonths();
@@ -157,10 +156,10 @@ public class Lending {
             System.out.printf("│ \u001B[32m%-64s\u001B[0m │\n", "KHOAN CHO VAY DA DUOC TRA HET");
         }
 
-        System.out.println("└────────────────────────────────────────────────────────────────┘");
+        System.out.println("└──────────────────────────────────────────────────────────────────┘");
     }
 
-    // THÊM: Chuyển trạng thái sang tiếng Việt
+    //Chuyển trạng thái sang tiếng Việt
     private String getStatusVietnamese() {
         switch (status) {
             case "ACTIVE": return "Dang cho vay";
@@ -170,7 +169,7 @@ public class Lending {
         }
     }
 
-    // GIỮ NGUYÊN: Hàm định dạng tiền tệ
+    //Hàm định dạng tiền tệ
     private String formatCurrency(double amount) {
         if (amount >= 1_000_000_000) {
             return String.format("%,.2f ty", amount / 1_000_000_000);
@@ -183,7 +182,7 @@ public class Lending {
         }
     }
 
-    // GIỮ NGUYÊN: Hàm rút gọn chuỗi
+    //Hàm rút gọn chuỗi
     private String shortenString(String text, int maxLength) {
         if (text == null) return "";
         if (text.length() <= maxLength) return text;

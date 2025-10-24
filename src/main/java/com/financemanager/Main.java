@@ -104,8 +104,6 @@ public class Main {
 
         System.out.print("Nhap ID tai khoan can them tien: ");
         String accountId = scanner.nextLine();
-
-        // SỬA: Validate số tiền với input string
         double amount;
         while (true) {
             System.out.print("Nhap so tien can them: ");
@@ -214,7 +212,6 @@ public class Main {
         } while (choice != 7);
     }
 
-    // update: bao cao tai chinh cho tung tai khoan
     private static void manageAccountReports() {
         int choice;
         do {
@@ -244,7 +241,6 @@ public class Main {
         } while (choice != 4);
     }
 
-    // THÊM MỚI - TẠO BÁO CÁO CHO TỪNG TÀI KHOẢN
     private static void generateAccountReport() {
         System.out.print("Nhap ID tai khoan can xem bao cao: ");
         String accountId = scanner.nextLine();
@@ -292,7 +288,7 @@ public class Main {
             }
         }
 
-        // SỬA: Validate số dư ban đầu với input string
+        // Validate số dư ban đầu với input string
         double balance;
         while (true) {
             System.out.print("Nhap so du ban dau: ");
@@ -365,8 +361,7 @@ public class Main {
             System.out.println("4. Xem danh sach khoan cho vay");
             System.out.println("5. Tra no khoan vay");
             System.out.println("6. Thu no khoan cho vay");
-            System.out.println("7. Xem cac khoan sap den han");
-            System.out.println("8. Quay lai");
+            System.out.println("7. Quay lai");
 
             choice = getIntInput("Chon chuc nang: ");
 
@@ -390,15 +385,12 @@ public class Main {
                     collectLending();
                     break;
                 case 7:
-                    displayUpcomingDueItems();
-                    break;
-                case 8:
                     System.out.println("Quay lai menu chinh...");
                     break;
                 default:
                     System.out.println("Lua chon khong hop le!");
             }
-        } while (choice != 8);
+        } while (choice != 7);
     }
 
     private static void addNewLoan() {
@@ -411,13 +403,13 @@ public class Main {
 
         double interestRate = getDoubleInput("Nhap lai suat (%): ");
 
-        // THÊM: Nhập số tháng vay
+        //Nhập số tháng vay
         int months = getIntInput("Nhap so thang vay: ");
 
         System.out.print("Nhap mo ta: ");
         String description = scanner.nextLine();
 
-        // SỬA: Gọi method với số tháng
+        //Gọi method với số tháng
         financeManager.addLoan(lender, amount, interestRate, months, description);
     }
 
@@ -437,7 +429,7 @@ public class Main {
         System.out.print("Nhap mo ta: ");
         String description = scanner.nextLine();
 
-        // SỬA: Gọi method với số tháng
+        //Gọi method với số tháng
         financeManager.addLending(borrower, amount, interestRate, months, description);
     }
 
@@ -491,8 +483,4 @@ public class Main {
         financeManager.collectLending(lendingId, amount);
     }
 
-    private static void displayUpcomingDueItems() {
-        int days = getIntInput("Nhap so ngay sap toi can kiem tra: ");
-        financeManager.displayUpcomingDueItems(days);
-    }
 }
