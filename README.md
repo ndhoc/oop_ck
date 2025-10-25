@@ -8,7 +8,7 @@ Dự án được phát triển phục vụ mục đích **học tập môn OOP*
 - Kế thừa (Inheritance)
 - Đa hình (Polymorphism)
 - Trừu tượng (Abstraction)
-- Bao đóng (Encapsulation)
+- Đóng gói (Encapsulation)
 - Sử dụng `enum`, `exception`, `package`, `interface`, `final`…
 
 ---
